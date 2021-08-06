@@ -1,9 +1,8 @@
-import "./App.css";
-
+import Route from './Route';
 function App() {
   return (
     <div className="App">
-      <h1> Hello redux </h1>
+      <Route />
     </div>
   );
 }

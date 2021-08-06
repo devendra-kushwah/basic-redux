@@ -1,31 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import store from "./store";
 import reportWebVitals from "./reportWebVitals";
-import { createStore } from "redux";
+import store from "./store";
 
-function todos(state = [], action) {
-  switch (action.type) {
-    case "ADD_TODO":
-      return state.concat([action.text]);
-    default:
-      return state;
-  }
-}
-
-const store = createStore(todos, ["Use Redux"]);
-
-store.dispatch({
-  type: "ADD_TODO",
-  text: "Read the docs",
-});
-
-console.log(store);
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
